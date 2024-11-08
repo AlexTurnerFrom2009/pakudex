@@ -1,6 +1,6 @@
 class Pakuri:
   def __init__(self, species):
-    self.species = species
+    self.__species = species
     self.__attack = len(species) * 7 + 9
     self.__defense = len(species) * 5 + 17
     self.__speed = len(species) * 6 + 13
