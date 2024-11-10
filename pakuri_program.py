@@ -3,7 +3,7 @@ from pakudex import *
 if __name__ == "__main__":
   print("Welcome to Pakudex: Tracker Extraordinaire!")
   max_capacity = ""
-  while not type(max_capacity) is int:
+  while not type(max_capacity) is int and max_capacity > 0:
     try:
       max_capacity = int(input("Enter max capacity of the Pakudex:"))
     except:
