@@ -14,7 +14,13 @@ if __name__ == "__main__":
   p = Pakudex(max_capacity)
 
   while True:
-    choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do? "))
+    while True:
+      try:
+         choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do? "))
+         break
+      except:
+         print("Unrecognized menu selection!")
+        
     if choice == 1:
       if not p.get_species_array() == None:
         print("Pakuri in Pakudex:")
@@ -54,7 +60,4 @@ if __name__ == "__main__":
     elif choice == 6:
       print("Thanks for using Pakudex! Bye!")
       break
-    
-    else:
-      print("Unrecognized menu selection!")
 
