@@ -4,12 +4,11 @@ import math
 if __name__ == "__main__":
   print("Welcome to Pakudex: Tracker Extraordinaire!")
   max_capacity = 0
-  while max_capacity < 1:
+  while max_capacity < 0:
     try:
       max_capacity = int(input("Enter max capacity of the Pakudex: "))
+      asser max_capacity > 0
     except:
-      print("Please enter a valid size.")
-    if max_capacity < 1:
       print("Please enter a valid size.")
       
   print(f"The Pakudex can hold {max_capacity} species of Pakuri.")
