@@ -1,5 +1,4 @@
 from pakudex import *
-import math
 
 if __name__ == "__main__":
   print("Welcome to Pakudex: Tracker Extraordinaire!")
