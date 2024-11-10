@@ -1,10 +1,11 @@
-from pakuri import Pakuri
-class Pakudex:
+import pakuri
 
+class Pakudex:
   def __init__(self, capacity=20):
     self.max = capacity
     self.stored = {}
-    self.species_list = list(stored.keys())
+    self.species_list = list(self.stored.keys())
+    self.occupied = 0
 
   def get_size(self):
     return len(self.stored)
@@ -13,7 +14,7 @@ class Pakudex:
     return self.max
 
   def get_species_array(self):
-    if len(self.stored) > 0:
+    if self.occupied > 0:
       return self.species_list
     return None
 
@@ -26,16 +27,18 @@ class Pakudex:
         return None
 
   def sort_pakuri(self):
-    new_species_list = sorted(self.species_list)
-    new_stored = {species: self.stored[species] for species in new_species_list}
+    self.species_list.sort()
+    new_stored = {species: self.stored[species] for species in species_list}
     self.stored = new_stored
-    self.species_list = new_species_list
+
 
   def add_pakuri(self, species):
-    if species in self.species_list:
+    if species in self.species_list and self.occupied >= self.max:
       return False
     self.stored.update({species: Pakuri(species)})
     self.species_list.append(species)
+    self.occupied += 1
+    return True
 
   def evolve_species(self, species):
       if species in self.species_list:
@@ -44,6 +47,10 @@ class Pakudex:
       else:
         return False
 
+
+
+
+  
 
 
 
