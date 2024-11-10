@@ -23,14 +23,14 @@ if __name__ == "__main__":
         
     if choice == 1:
       if not p.get_species_array() == None:
-        print("Pakuri in Pakudex:")
+        print("Pakuri In Pakudex:")
         for i, species in enumerate(p.get_species_array()):
           print(f"{i+1}. {species}")
       else:
         print("No Pakuri in Pakudex yet!")
 
     elif choice == 2:
-      requesting = input("Enter the name of the species to display:")
+      requesting = input("Enter the name of the species to display: ")
       stats = p.get_stats(requesting)
       if not stats == None:
         print(f"Species: {requesting}\nAttack: {stats[0]}\nDefense: {stats[1]}\nSpeed: {stats[2]}")
@@ -38,16 +38,17 @@ if __name__ == "__main__":
         print("Error: No such Pakuri!")
     
     elif choice == 3:
-      adding = input("Enter the name of the species to add:")
-      if p.add_pakuri(adding):
-        print(f"Pakuri species {adding} successfully added!")
-      elif p.occupied >= p.max:
+      if p.occupied >= p.max:
         print("Error: Pakudex is full!")
       else:
-        print("Error: Pakudex already contains this species!")
+        adding = input("Enter the name of the species to add: ")
+        if p.add_pakuri(adding):
+          print(f"Pakuri species {adding} successfully added!")
+        else:
+          print("Error: Pakudex already contains this species!")
 
     elif choice == 4:
-      evolving = input("Enter the name of the species to evolve:")
+      evolving = input("Enter the name of the species to evolve: ")
       if p.evolve_species(evolving):
         print(f"{evolving} has evolved!")
       else:
