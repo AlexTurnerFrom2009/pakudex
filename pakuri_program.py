@@ -7,7 +7,7 @@ if __name__ == "__main__":
   while max_capacity < 0:
     try:
       max_capacity = int(input("Enter max capacity of the Pakudex: "))
-      asser max_capacity > 0
+      assert max_capacity > 0
     except:
       print("Please enter a valid size.")
       
