@@ -19,12 +19,11 @@ class Pakudex:
     return None
 
   def get_stats(self, species):
-    for pakuri in self.species_list:
-      if pakuri == species:
-        stats = [self.stored[pakuri].get_attack(), self.stored[pakuri].get_defense(), self.stored[pakuri].get_speed()]
-        return stats
-      else:
-        return None
+    if species in self.species_list:
+      stats = [self.stored[species].get_attack(), self.stored[species].get_defense(), self.stored[species].get_speed()]
+      return stats
+    else:
+      return None
 
   def sort_pakuri(self):
     self.species_list.sort()
@@ -55,3 +54,4 @@ class Pakudex:
 
 
   
+
