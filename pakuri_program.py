@@ -14,10 +14,11 @@ if __name__ == "__main__":
   p = Pakudex(max_capacity)
 
   while True:
-    while True:
+    choice = 0
+    while choice <= 0 or choice > 6:
       try:
          choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do? "))
-         break
+         assert choice > 0 and choice < 7
       except:
          print("Unrecognized menu selection!")
         
