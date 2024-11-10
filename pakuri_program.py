@@ -2,12 +2,17 @@ from pakudex import *
 
 if __name__ == "__main__":
   print("Welcome to Pakudex: Tracker Extraordinaire!")
-  max_capacity = int(input("Enter max capacity of the Pakudex:"))
+  max_capacity = ""
+  while not type(max_capacity) is int:
+    try:
+      max_capacity = int(input("Enter max capacity of the Pakudex:"))
+    except:
+      print("Please enter a valid size.")
   print(f"The Pakudex can hold {max_capacity} species of Pakuri.")
   p = Pakudex(max_capacity)
 
   while True:
-    choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do?"))
+    choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do? "))
     if choice == 1:
       if not p.get_species_array() == None:
         print("Pakuri in Pakudex:")
@@ -47,4 +52,7 @@ if __name__ == "__main__":
     elif choice == 6:
       print("Thanks for using Pakudex! Bye!")
       break
+    
+    else:
+      print("Unrecognized menu selection!")
 
