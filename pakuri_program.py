@@ -18,7 +18,7 @@ if __name__ == "__main__":
     while choice <= 0 or choice > 6:
       try:
          choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do? "))
-         assert choice > 0
+         assert choice > 0 and choice < 7
       except:
          print("Unrecognized menu selection!")
         
