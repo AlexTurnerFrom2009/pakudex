@@ -18,7 +18,7 @@ if __name__ == "__main__":
     while choice <= 0 or choice > 6:
       try:
          choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do? "))
-         assert choice > 0 and choice < 7
+         assert choice > 0
       except:
          print("Unrecognized menu selection!")
         
@@ -33,10 +33,11 @@ if __name__ == "__main__":
     elif choice == 2:
       requesting = input("Enter the name of the species to display: ")
       stats = p.get_stats(requesting)
-      if not stats == None:
-        print(f"Species: {requesting}\nAttack: {stats[0]}\nDefense: {stats[1]}\nSpeed: {stats[2]}")
-      else:
+      if stats == None:
         print("Error: No such Pakuri!")
+      else:
+        print(f"Species: {requesting}\nAttack: {stats[0]}\nDefense: {stats[1]}\nSpeed: {stats[2]}")
+       
     
     elif choice == 3:
       if p.occupied >= p.max:
