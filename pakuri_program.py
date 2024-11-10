@@ -1,20 +1,18 @@
 from pakudex import *
-import pakuri
 
 if __name__ == "__main__":
   print("Welcome to Pakudex: Tracker Extraordinaire!")
-  max_capacity = input("Enter max capacity of the Pakudex:")
+  max_capacity = int(input("Enter max capacity of the Pakudex:"))
   print(f"The Pakudex can hold {max_capacity} species of Pakuri.")
-  p = Pakudex(20)
+  p = Pakudex(max_capacity)
 
   while True:
-    choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit"))
-    
+    choice = int(input("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n\nWhat would you like to do?"))
     if choice == 1:
       if not p.get_species_array() == None:
         print("Pakuri in Pakudex:")
         for i, species in enumerate(p.get_species_array()):
-          print(f"{i}. {species}")
+          print(f"{i+1}. {species}")
       else:
         print("No Pakuri in Pakudex yet!")
 
@@ -22,7 +20,7 @@ if __name__ == "__main__":
       requesting = input("Enter the name of the species to display:")
       stats = p.get_stats(requesting)
       if not stats == None:
-        print(f"Species: {requested}\nAttack: {stats[0]}\nDefense: {stats[1]}\nSpeed: {stats[2]}")
+        print(f"Species: {requesting}\nAttack: {stats[0]}\nDefense: {stats[1]}\nSpeed: {stats[2]}")
       else:
         print("Error: No such Pakuri!")
     
@@ -37,7 +35,7 @@ if __name__ == "__main__":
 
     elif choice == 4:
       evolving = input("Enter the name of the species to evolve:")
-      if p.evolve(evolving):
+      if p.evolve_species(evolving):
         print(f"{evolving} has evolved!")
       else:
         print("Error: No such Pakuri!")

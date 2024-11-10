@@ -1,4 +1,4 @@
-import pakuri
+from pakuri import *
 
 class Pakudex:
   def __init__(self, capacity=20):
@@ -21,19 +21,19 @@ class Pakudex:
   def get_stats(self, species):
     for pakuri in self.species_list:
       if pakuri == species:
-        stats = [self.stored[pakuri].attack, self.stored[pakuri].defense, self.stored[pakuri].speed]
+        stats = [self.stored[pakuri].get_attack(), self.stored[pakuri].get_defense(), self.stored[pakuri].get_speed()]
         return stats
       else:
         return None
 
   def sort_pakuri(self):
     self.species_list.sort()
-    new_stored = {species: self.stored[species] for species in species_list}
+    new_stored = {species: self.stored[species] for species in self.species_list}
     self.stored = new_stored
 
 
   def add_pakuri(self, species):
-    if species in self.species_list and self.occupied >= self.max:
+    if species in self.species_list or self.occupied >= self.max:
       return False
     self.stored.update({species: Pakuri(species)})
     self.species_list.append(species)
