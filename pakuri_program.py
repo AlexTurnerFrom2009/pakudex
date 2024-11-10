@@ -7,9 +7,10 @@ if __name__ == "__main__":
   while max_capacity < 1:
     try:
       max_capacity = int(input("Enter max capacity of the Pakudex: "))
-      max_capacity = math.pow(math.sqrt(max_capacity), 2)
+      break
     except:
       print("Please enter a valid size.")
+    print("Please enter a valid size.")
       
   print(f"The Pakudex can hold {max_capacity} species of Pakuri.")
   p = Pakudex(max_capacity)
